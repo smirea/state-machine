@@ -1,2 +1,6 @@
+[install]
+# Hoist root dependencies so every app and package shares one root-installed version.
+linker = "hoisted"
+
 [test]
 preload = ["./scripts/test-timezone.ts", "./scripts/test-guard.ts"]

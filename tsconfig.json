@@ -26,5 +26,5 @@
   // TypeScript's wildcards skip dot folders, so the CI scripts are listed by name.
   "include": ["**/*", ".github/scripts"],
   // Xcode checks Swift packages out under DerivedData, and some ship JavaScript that allowJs would check.
-  "exclude": ["node_modules", "**/DerivedData"]
+  "exclude": ["node_modules", ".nx", "**/dist", "**/build", "**/out", "**/DerivedData"]
 }

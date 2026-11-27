@@ -25,7 +25,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        task: ["lint:ci", typecheck, test, build]
+        task: ["lint:ci", typecheck, "check:deps", test, build]
     env:
       CI: "true"
       LEFTHOOK: "0"

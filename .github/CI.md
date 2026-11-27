@@ -4,7 +4,7 @@
 
 Actions are pinned to commit SHAs. Dependabot checks for action updates weekly.
 
-Bun jobs run the root `lint:ci`, `typecheck`, `test`, and `build` scripts, one job each. Each takes seconds, so they start at once and run on every change, with no change detection in front of them. Keep CI checks read-only. `test` passes until tests are added. `.bun-version` and `packageManager` pin Bun to the version used during scaffolding; update them together. Commit `bun.lock` after changing dependencies. CI caches package downloads, then always installs with `--frozen-lockfile`.
+Bun jobs run the root `lint:ci`, `typecheck`, `check:deps`, `test`, and `build` scripts, one job each. Each takes seconds, so they start at once and run on every change, with no change detection in front of them. Keep CI checks read-only. `test` passes until tests are added. `.bun-version` and `packageManager` pin Bun to the version used during scaffolding; update them together. Commit `bun.lock` after changing dependencies. CI caches package downloads, then always installs with `--frozen-lockfile`.
 
 The pre-commit hook already ran lint, typecheck, and the tests before the commit existed. CI repeats them for what a hook can't see: a merge, a machine without the hooks, and the build. A CI failure the hook could have caught is a hook bug, so fix the hook. Tests follow the `tests` skill: logic only, in-process, never in a browser or a simulator. A new check is a package script first. Add it to the hook if it finishes in seconds, and to the `task` matrix as its own job.
 

@@ -13,6 +13,9 @@ pre-commit:
           - name: typecheck
             glob: "*.{js,mjs,mts,ts,tsx,svelte,json,jsonc}"
             run: bun run typecheck
+          - name: check-deps
+            glob: "{package.json,**/package.json}"
+            run: bun run check:deps
           # The whole suite: logic tests run in-process in milliseconds, so selecting by diff would save little and
           # could miss a test whose input is not an import. Git exports GIT_DIR and GIT_INDEX_FILE to hooks, so a
           # test that runs git in a temp directory would act on this repository unless they are unset first.
