@@ -18,15 +18,24 @@
     "graph": "bunx nx graph"
   },
   "dependencies": {
+    "elkjs": "^0.12.2",
     "es-toolkit": "^1.53.2",
     "kill-port-process": "^5.0.0",
-    "lodash": "^4.18.1"
+    "lodash": "^4.18.1",
+    "lucide-react": "^1.81.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "xstate": "^5.33.4"
   },
   "devDependencies": {
     "@types/bun": "^1.4.5",
+    "@types/react": "^19.3.3",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
     "lefthook": "^2.2.4",
     "nx": "^24.1.0",
     "oxlint": "^1.95.0",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vite": "^8.4.0"
   }
 }

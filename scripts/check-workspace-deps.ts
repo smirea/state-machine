@@ -13,6 +13,12 @@ function readManifest(filePath: string): PackageManifest {
   return JSON.parse(readFileSync(filePath, "utf8")) as PackageManifest;
 }
 
+function hasNestedInstalledPackages(nodeModulesDir: string): boolean {
+  if (!existsSync(nodeModulesDir)) return false;
+  // Tool caches like Vite's `.vite` live inside node_modules; only real package entries violate root hoisting.
+  return readdirSync(nodeModulesDir).some((entry) => !entry.startsWith("."));
+}
+
 const rootManifest = readManifest(join(repoRoot, "package.json"));
 const workspaces: WorkspacePackageInput[] = [];
 
@@ -27,7 +33,7 @@ for (const dir of WORKSPACE_DIRS) {
     workspaces.push({
       path: relative(repoRoot, manifestPath),
       manifest: readManifest(manifestPath),
-      hasNestedNodeModules: existsSync(join(pkgDir, "node_modules")),
+      hasNestedNodeModules: hasNestedInstalledPackages(join(pkgDir, "node_modules")),
     });
   }
 }

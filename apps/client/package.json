@@ -1,0 +1,14 @@
+{
+  "name": "@state-machine/client",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@state-machine/visualizer": "workspace:*"
+  },
+  "scripts": {
+    "dev": "bunx --bun vite",
+    "build": "bunx --bun vite build",
+    "preview": "bunx --bun vite preview"
+  }
+}

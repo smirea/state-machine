@@ -1,8 +1,9 @@
 {
   // pulled from bun init
   "compilerOptions": {
-    "lib": ["ESNext", "DOM"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "types": ["bun"],
+    "jsx": "react-jsx",
     "target": "ESNext",
     "module": "Preserve",
     "moduleDetection": "force",
